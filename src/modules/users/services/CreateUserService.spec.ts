@@ -10,12 +10,12 @@ describe('CreateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    const createAppointment = new CreateUserService(
+    const createUser = new CreateUserService(
       fakeUsersRepository,
       fakeHashProvider,
     );
 
-    const user = await createAppointment.execute({
+    const user = await createUser.execute({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
@@ -28,19 +28,19 @@ describe('CreateUser', () => {
     const fakeUsersRepository = new FakeUsersRepository();
     const fakeHashProvider = new FakeHashProvider();
 
-    const createAppointment = new CreateUserService(
+    const createUser = new CreateUserService(
       fakeUsersRepository,
       fakeHashProvider,
     );
 
-    await createAppointment.execute({
+    await createUser.execute({
       name: 'John Doe',
       email: 'johndoe@example.com',
       password: '123456',
     });
 
     expect(
-      createAppointment.execute({
+      createUser.execute({
         name: 'John Doe',
         email: 'johndoe@example.com',
         password: '123456',
